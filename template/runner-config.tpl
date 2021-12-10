@@ -23,6 +23,7 @@ sentry_dsn = "${sentry_dsn}"
     shm_size = ${runners_shm_size}
     pull_policy = "${runners_pull_policy}"
     runtime = "${runners_docker_runtime}"
+    gpus = "all"
     helper_image = "${runners_helper_image}"
   [runners.docker.tmpfs]
     ${runners_volumes_tmpfs}
