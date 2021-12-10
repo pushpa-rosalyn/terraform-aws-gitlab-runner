@@ -40,7 +40,7 @@ resource "null_resource" "remove_runner" {
   provisioner "local-exec" {
     when       = destroy
     on_failure = continue
-    command    = "curl -sS --request DELETE \"${self.triggers.runners_gitlab_url}/api/v4/runners\" --form \"token=${self.triggers.runner_registration_token}\""
+    command    = "${self.triggers.script} ${self.triggers.aws_region} ${self.triggers.runners_gitlab_url} ${self.triggers.secure_parameter_store_runner_token_key}"
   }
 }
 
